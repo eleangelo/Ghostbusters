@@ -3,6 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="stylesheet" href="css/normalize.css" />
+    <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+    <link rel="stylesheet" href="css/swiper.min.css">
     <link rel="stylesheet" href="css/style.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;700;900&display=swap"
@@ -16,7 +18,8 @@
       <a href="/" class="header-logo">
         <img width="68" src="images/logo.png" alt="Logo: film" class="logo" />
       </a>
-      <input
+      <div class="m-menu">
+        <input
         type="search"
         class="search-input"
         placeholder="Поиск по фильму..."
@@ -30,6 +33,7 @@
       <div class="button-group">
         <button class="button-nav registry">Регистрация</button>
         <button class="button-nav login">Войти</button>
+      </div>
       </div>
       <div class="mobil-buttons">
           <button class="mobil-buttton-search">
@@ -47,14 +51,11 @@
         <div class="film-wrapper">
           <div class="film-trailer">
             <img src="images/poster.jpg" alt="Poster" class="poster" />
-            <button class="trailer-button">
-              <img
-                src="images/play.svg"
-                alt="Play"
-                class="trailer-button-icon"
+            <a data-fancybox href="https://youtu.be/o705uydkgew" class="trailer-button">
+              <img src="images/play.svg" alt="Play"class="trailer-button-icon"
               />
-              <span class="trailer-button-text">Посмотреть трейлер</span>
-            </button>
+              <span class="trailer-text">Посмотреть трейлер</span>
+            </a>
           </div>
           <!-- /.hero-trailer -->
           <div class="film-text">
@@ -126,10 +127,11 @@
     <section class="cast">
       <div class="container">
         <div class="tabs">
-          <h2 class="cast-title active">Актеры</h2>
-          <h2 class="cast-title">Создатели</h2>
+          <h2 class="tab cast-title active" data-target="#actors">Актеры</h2>
+          <h2 class="tab cast-title" data-target="#creaters">Создатели</h2>
+          
         </div>
-        <div class="tabs-content">
+        <div class="tabs-content visible" id="actors">
           <div class="card">
             <img src="images/actors/1.png" alt="Кэрри Кун" class="card-image" />
             <div class="card-text">
@@ -188,6 +190,36 @@
           </div>
         </div>
         <!-- /.tabs-content -->
+        <div class="tabs-content" id="creaters">
+          <div class="card">
+            <img src="images/actors/1.png" alt="Vera Ivanova" class="card-image" />
+            <div class="card-text">
+              <h3 class="name">Vera Ivanova</h3>
+              <span class="en-name">Carrie Coon</span>
+            </div>
+          </div>
+          <div class="card">
+            <img src="images/actors/2.png" alt="Artem Petrov" class="card-image" />
+            <div class="card-text">
+              <h3 class="name">Artem Petrov</h3>
+              <span class="en-name">Bill Murray</span>
+            </div>
+          </div>
+          <div class="card">
+            <img src="images/actors/3.png" alt="Пол Радд" class="card-image" />
+            <div class="card-text">
+              <h3 class="name">Пол Радд</h3>
+              <span class="en-name">Paul Rudd</span>
+            </div>
+          </div>
+          <div class="card">
+            <img src="images/actors/4.png" alt="Энни Поттс" class="card-image" />
+            <div class="card-text">
+              <h3 class="name">Энни Поттс</h3>
+              <span class="en-name">Annie Potts</span>
+            </div>
+          </div>  
+        </div>
       </div>
       <!-- /.container -->
     </section>
@@ -195,26 +227,43 @@
     <section class="news">
         <div class="container">
             <h2 class="news-title">Новости по теме</h2>
-            <div class="news-cards">
-                <div class="news-card">
-                    <spsn class="news-data">31 марта 2020</spsn>
+            <div class="swiper-container">
+              <div class=" swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="news-card">
+                    <spsn class="news-data ">31 марта 2020</spsn>
                     <h3 class="new-title">«Морбиуса» и «Охотников за привидениями» перенесли на следующий год</h3>
+                  </div>
                 </div>
-                <div class="news-card">
-                    <spsn class="news-data">9 декабря 2019</spsn>
-                    <h3 class="new-title">Наследники: Вышел дебютный трейлер новых «Охотников за привидениями»</h3>
-                </div>
-                <div class="news-card">
-                    <spsn class="news-data">11 ноября 2019</spsn>
-                    <h3 class="new-title">Новые «Охотники за привидениями» обзавелись названием</h3>
-                </div>
-                <div class="news-card">
-                    <spsn class="news-data">19 октября 2019</spsn>
-                    <h3 class="new-title">Завершились съёмки новых «Охотников за привидениями»</h3>
-                </div>
-
-            </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <spsn class="news-data">9 декабря 2019</spsn>
+                      <h3 class="new-title">Наследники: Вышел дебютный трейлер новых «Охотников за привидениями»</h3>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <spsn class="news-data">11 ноября 2019</spsn>
+                      <h3 class="new-title">Новые «Охотники за привидениями» обзавелись названием</h3>
+                    </div>
+                  </div>
+                  <div class="swiper-slide">
+                    <div class="news-card">
+                      <spsn class="news-data">19 октября 2019</spsn>
+                      <h3 class="new-title">Завершились съёмки новых «Охотников за привидениями»</h3>
+                    </div>
+                  </div>
+              </div>
+              <button class="button-next">
+                <img src="images/arrow.svg" alt="arrow">
+              </button>
+            </div><!-- /.swiper-container -->
         </div>
     </section>
+
+    <script src="js/jquery-3.5.1.min.js"></script>
+    <script src="js/jquery.fancybox.min.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/swiper.min.js"></script>
   </body>
 </html>
